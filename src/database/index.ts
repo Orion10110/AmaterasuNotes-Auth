@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose'
-import { MONGODB_URL } from 'config'
+import { MONGODB_URL } from '../config'
 
 export const connectToDB = () => mongoose.connect(MONGODB_URL, {
     useNewUrlParser: true,

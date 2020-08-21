@@ -1,19 +1,19 @@
 import { Request, Response } from 'express'
 import { JSONCookies } from 'cookie-parser'
-import * as auth from 'services/auth'
+import * as auth from '../services/auth'
 
 const REFRESH_AGE = 60 * 60 * 24 * 60
 
 export const signUp = async (req: Request, res: Response) => {
     try {
         const { name, email, password, fingerprint } : { name: string, email: string, password: string, fingerprint: string } = req.body
-        const token = await auth.signUp({
+        const { accessToken } = await auth.signUp({
             name,
             email,
             password,
             fingerprint
         })
-        res.status(201).send({ token })
+        res.status(201).send({ token: accessToken })
     } catch (error) {
         res.status(400).send(error)
     }
@@ -23,12 +23,12 @@ export const signUp = async (req: Request, res: Response) => {
 export const signIn = async (req: Request, res: Response) => {
     try {
         const { email, password, fingerprint } : { email: string, password: string, fingerprint: string } = req.body
-        const token = await auth.signIn({ email, password, fingerprint })
-        res.cookie('refreshToken', token.refreshToken, {
+        const { accessToken, refreshToken } = await auth.signIn({ email, password, fingerprint })
+        res.cookie('refreshToken', refreshToken, {
             maxAge: REFRESH_AGE,
             httpOnly: true
         })
-        res.send(token)
+        res.send({ token: accessToken })
     } catch (error) {
         res.status(400).send(error)
     }
