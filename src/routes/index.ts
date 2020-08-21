@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { signUp, signIn, signOut, refresh} from 'controllers'
+import { signUp, signIn, signOut, refresh} from '../controllers'
 
 const SIGN_UP_ROUTE= "/sign-up"
 const SIGN_IN_ROUTE = "/sign-in"

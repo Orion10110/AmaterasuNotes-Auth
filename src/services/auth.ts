@@ -1,5 +1,5 @@
-import { createUser, getUserByCredentials, addUserToken, updateToken, findByTokenAndFingerprint, removeToken } from 'services/user'
-import { generateAuthTokens, isValidToken, decode } from 'services/jwt'
+import { createUser, getUserByCredentials, addUserToken, updateToken, findByTokenAndFingerprint, removeToken } from './user'
+import { generateAuthTokens, isValidToken, decode } from './jwt'
 
 export const signUp = async ({
     name,

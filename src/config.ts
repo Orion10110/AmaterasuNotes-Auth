@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import { ENVType } from './types'
+import { ENVType } from 'types'
 
 dotenv.config({ path: '.env' })
 

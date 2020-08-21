@@ -1,5 +1,5 @@
 import * as jwt from 'jsonwebtoken'
-import { JWT_KEY } from 'config'
+import { JWT_KEY } from '../config'
 
 export const generateAuthTokens = async user => {
     const accessToken = jwt.sign({ name: user.name }, JWT_KEY, { subject: user.id,  expiresIn: 30, issuer: 'amaterasu-notes_auth'  })
