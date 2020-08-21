@@ -1,11 +1,12 @@
 import * as express from 'express'
-import { Application, Router } from 'express'
+import { Application } from 'express'
 import { AppParams } from './types'
 import { connectToDB } from './database'
+import { Server } from 'http'
 
-export const App = ({port, middlewares, routes}: AppParams) => {
+export const App = ({port, middlewares, routes}: AppParams): Server => {
     const app: Application = express()
-    
+
     middlewares.forEach(middleware => app.use(middleware))
     routes.forEach(route => app.use(route))
     connectToDB();
