@@ -1,12 +1,15 @@
 {
     "compilerOptions": {
-        "sourceMap": true,
-        "target": "es6",
-        "module": "commonjs",
+        "target": "es2019", /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
+        "module": "commonjs", /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+        "noImplicitAny": true, /* Raise error on expressions and declarations with an implied 'any' type. */
+        "strict": true, /* Enable all strict type-checking options. */
         "outDir": "./dist",
-        "baseUrl": "./src"
+        "baseUrl": "./src",
+        "rootDir": "./src",
+        // "sourceMap": true,                     /* Generates corresponding '.map' file. */
+        // "allowJs": true,                       /* Allow javascript files to be compiled. */
     },
-    "exclude": [
-        "node_modules"
-    ]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
 }

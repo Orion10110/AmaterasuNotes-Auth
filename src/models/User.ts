@@ -1,7 +1,10 @@
-import * as mongoose from 'mongoose'
-import * as validator from 'validator'
+import * as mongoose from 'mongoose';
+import { IUser } from '../types'
+import isEmail from 'validator/lib/isEmail';
 
-const userSchema = mongoose.Schema({
+
+
+const UserSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -12,10 +15,11 @@ const userSchema = mongoose.Schema({
         required: true,
         unique: true,
         lowercase: true,
-        validate: value => {
-            if (!validator.isEmail(value)) {
-                throw new Error('Invalid Email address')
-            }
+        validate: {
+            validator: (value: string) => {
+                return isEmail(value)
+            },
+            message: props => `${props.value} is not a valid email!`
         }
     },
     password: {
@@ -39,4 +43,4 @@ const userSchema = mongoose.Schema({
     }]
 })
 
-export const User = mongoose.model('User', userSchema)
+export const User = mongoose.model<IUser>('User', UserSchema)
