@@ -21,6 +21,7 @@ const sessionMiddleware = session({
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const app = App({
     port: 3000,
+    host: '0.0.0.0',
     routes,
     middlewares: [
         bodyParser.json(),

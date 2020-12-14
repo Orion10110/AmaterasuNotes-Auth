@@ -8,6 +8,7 @@ export type ENVType = 'production' | 'development'
 
 export interface AppParams {
     port: number;
+    host: string;
     middlewares: MiddlewareType[];
     routes: IRouter[]
 }
