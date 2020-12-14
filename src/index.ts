@@ -10,18 +10,18 @@ const httpLogerMiddleware = (ENV === DEVELOPMENT_ENV && [
     morgan('dev')
 ] || [])
 
-const sessionMiddleware =   session({
-    cookieName: 'refreshToken',
+const sessionMiddleware = session({
     secret: SESSIONS_SECRET,
     resave: false,
     saveUninitialized: true,
-    httpOnly: true,
-    secure: false,
+    cookie: { httpOnly: true , secure: false},
 })
 
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const app = App({
     port: 3000,
+    host: '0.0.0.0',
     routes,
     middlewares: [
         bodyParser.json(),
