@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --files src/index.ts",
     "start": "ts-node .",
-    "build": "tsc -p .",
+    "build": "tsc --build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
