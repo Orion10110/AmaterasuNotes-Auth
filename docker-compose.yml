@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     env_file: .env
     environment:
-      - JWT_KEY=JWT_KEY
+      - JWT_KEY=$JWT_KEY
       - SESSIONS_SECRET=$SESSIONS_SECRET
       - MONGO_USERNAME=$MONGO_USERNAME
       - MONGO_PASSWORD=$MONGO_PASSWORD
@@ -17,7 +17,7 @@ services:
       - MONGO_PORT=$MONGO_PORT
       - MONGO_DB=$MONGO_DB
     ports:
-      - '80:3000'
+      - '81:3000'
     depends_on:
       - db
     volumes:
