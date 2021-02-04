@@ -21,7 +21,6 @@ services:
     depends_on:
       - db
     volumes:
-      - '.:/home/node/app'
       - 'node_modules:/home/node/app/node_modules'
     networks:
       - auth-network
